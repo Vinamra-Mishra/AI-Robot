@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARAR AI Robot</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SARAR AI</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="control.html" class="cta-button">Control Robot</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#specs">Specs</a></li>
+                <li><a href="#setup">Setup</a></li>
+                <li>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Meet SARAR</h1>
+                <p class="subtitle">A modular, interactive robotic platform that combines voice interaction, autonomous navigation, and visual feedback.</p>
+                <a href="#features" class="cta-button">Explore Features</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About The Project</h2>
+            <div class="about-container">
+                <div class="about-item">
+                    <h3>Mission</h3>
+                    <p>The SARAR AI Robot is designed to be an accessible, open-source platform for learning and experimentation in robotics and artificial intelligence. It integrates cutting-edge AI services with real-world hardware, providing a hands-on experience for developers, hobbyists, and students.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Modular by Design</h3>
+                    <p>The entire system is built with modularity in mind. Each component, from the speech-to-text engine to the motor controller, is a separate, well-documented module. This makes it easy to understand, modify, and extend the robot's capabilities without rebuilding from scratch.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Cross-Platform</h3>
+                    <p>Develop on your preferred OS. The project is designed for seamless development on Windows and deployment on a Raspberry Pi. The codebase abstracts hardware differences, allowing you to focus on functionality. Simulated components let you test logic without the physical robot.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Core Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="../static/images/speaking_hearing.png" alt="Voice Interaction">
+                    <h3>Natural Voice Interaction</h3>
+                    <p>Communicate with SARAR using natural speech. It listens, understands, and responds intelligently, powered by Vosk STT and Piper TTS.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="../static/images/happy.png" alt="AI Processing">
+                    <h3>Advanced AI Processing</h3>
+                    <p>With a primary OpenAI engine and a local GGUF model as a fallback, SARAR provides smart, context-aware responses and decision-making.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="../static/images/neutral.png" alt="Autonomous Navigation">
+                    <h3>Autonomous Navigation</h3>
+                    <p>SARAR navigates its environment safely using ultrasonic sensors to detect and avoid obstacles, controlled by a robust motor system.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="../static/images/thinking.png" alt="Visual Feedback">
+                    <h3>Expressive Visual Feedback</h3>
+                    <p>Understand SARAR's state at a glance. A dynamic display shows expressions like thinking, speaking, and happiness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Meet the Many Faces of SARAR</h2>
+            <div class="gallery-grid">
+                <figure><img src="../static/images/neutral.png" alt="Neutral Face"><figcaption>Neutral</figcaption></figure>
+                <figure><img src="../static/images/hearing.png" alt="Hearing Face"><figcaption>Hearing</figcaption></figure>
+                <figure><img src="../static/images/speaking.png" alt="Speaking Face"><figcaption>Speaking</figcaption></figure>
+                <figure><img src="../static/images/thinking.png" alt="Thinking Face"><figcaption>Thinking</figcaption></figure>
+                <figure><img src="../static/images/happy.png" alt="Happy Face"><figcaption>Happy</figcaption></figure>
+                <figure><img src="../static/images/confused.png" alt="Confused Face"><figcaption>Confused</figcaption></figure>
+                <figure><img src="../static/images/blink.png" alt="Blinking Face"><figcaption>Blink</figcaption></figure>
+                <figure><img src="../static/images/crashed.png" alt="Crashed Face"><figcaption>Error</figcaption></figure>
+            </div>
+        </section>
+
+        <section id="specs">
+            <h2>Technical Specifications</h2>
+            <div class="specs-container">
+                <div class="spec-item">
+                    <h4>Software & AI</h4>
+                    <ul>
+                        <li><strong>STT Engine:</strong> Vosk (vosk-model-small-en-in-0.4)</li>
+                        <li><strong>TTS Engine:</strong> Piper (en_US-amy-medium voice)</li>
+                        <li><strong>Primary AI:</strong> OpenAI API</li>
+                        <li><strong>Fallback AI:</strong> Local GGUF model via llama.cpp</li>
+                        <li><strong>Platform:</strong> Cross-platform (Windows/Raspberry Pi)</li>
+                    </ul>
+                </div>
+                <div class="spec-item">
+                    <h4>Hardware & Sensors</h4>
+                    <ul>
+                        <li><strong>Chassis:</strong> 4-Wheel Drive</li>
+                        <li><strong>Sensors:</strong> 3x Ultrasonic Sensors (Front, Left, Right)</li>
+                        <li><strong>Motor Control:</strong> GPIO-based on Raspberry Pi, simulated on Windows</li>
+                        <li><strong>Display:</strong> Pygame-based face display</li>
+                    </ul>
+                </div>
+                <div class="spec-item">
+                    <h4>System Features</h4>
+                    <ul>
+                        <li><strong>Logging:</strong> Comprehensive JSON and text logs for all activities.</li>
+                        <li><strong>Modularity:</strong> Codebase with clear separation of concerns.</li>
+                        <li><strong>Failsafes:</strong> Automatic AI model failover and hardware error handling.</li>
+                        <li><strong>Expressions:</strong> 8+ distinct facial expressions for clear state communication.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="setup">
+            <h2>Get Started with SARAR</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-for-tab="windows">Windows</button>
+                <button class="tab-button" data-for-tab="linux">Linux</button>
+                <button class="tab-button" data-for-tab="pi">Raspberry Pi</button>
+            </div>
+
+            <div class="tab-content active" data-tab="windows">
+                <h3>Windows Setup</h3>
+                <pre><code># 1. Clone the repository
+git clone https://github.com/your-username/ai-robot-4wd.git
+cd ai-robot-4wd
+
+# 2. Create and activate a Python virtual environment
+python -m venv myvenv
+myvenv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Configure the robot
+#    - Rename `config.example.json` to `config.json`
+#    - Add your OpenAI API key
+#    - Set `"platform": "windows"`
+
+# 5. Run the main application
+python main.py</code></pre>
+            </div>
+
+            <div class="tab-content" data-tab="linux">
+                <h3>Linux Setup</h3>
+                <pre><code># 1. Clone the repository
+git clone https://github.com/your-username/ai-robot-4wd.git
+cd ai-robot-4wd
+
+# 2. Create and activate a Python virtual environment
+python3 -m venv myvenv
+source myvenv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Configure the robot
+#    - Rename `config.example.json` to `config.json`
+#    - Add your OpenAI API key
+#    - Set `"platform": "windows"` (for simulation) or `"raspberry_pi"` if using hardware
+
+# 5. Run the main application
+python3 main.py</code></pre>
+            </div>
+
+            <div class="tab-content" data-tab="pi">
+                <h3>Raspberry Pi Setup</h3>
+                <pre><code># 1. Clone the repository
+git clone https://github.com/your-username/ai-robot-4wd.git
+cd ai-robot-4wd
+
+# 2. Create and activate a Python virtual environment
+python3 -m venv myvenv
+source myvenv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+# Note: You may need to install additional system libraries for some dependencies.
+# e.g., sudo apt-get install portaudio19-dev
+
+# 4. Configure the robot
+#    - Rename `config.example.json` to `config.json`
+#    - Add your OpenAI API key
+#    - Set `"platform": "raspberry_pi"`
+#    - Configure your GPIO pins for motors and sensors
+
+# 5. Run the main application
+python3 main.py</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SARAR AI Project. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

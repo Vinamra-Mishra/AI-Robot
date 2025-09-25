@@ -21,6 +21,7 @@ class FaceDisplay(threading.Thread):
         self.initialized = False
         self.running = False
         self.command_queue = queue.Queue()
+        self.current_face = "neutral"  # Instance variable for current face
 
     def _initialize_display(self):
         """Initializes the pygame display and loads face images."""
@@ -62,7 +63,6 @@ class FaceDisplay(threading.Thread):
             return
 
         self.running = True
-        current_face = "neutral"
 
         while self.running:
             try:
@@ -70,7 +70,7 @@ class FaceDisplay(threading.Thread):
                 try:
                     new_face = self.command_queue.get_nowait()
                     if new_face in self.faces:
-                        current_face = new_face
+                        self.current_face = new_face
                     elif new_face == "_shutdown":
                         self.running = False
                         continue
@@ -78,8 +78,8 @@ class FaceDisplay(threading.Thread):
                     pass
 
                 # Draw the current face
-                if current_face in self.faces:
-                    self.screen.blit(self.faces[current_face], (0, 0))
+                if self.current_face in self.faces:
+                    self.screen.blit(self.faces[self.current_face], (0, 0))
                     pygame.display.flip()
                 
                 # Handle pygame events
@@ -104,6 +104,10 @@ class FaceDisplay(threading.Thread):
         """Thread-safe method to change the displayed face."""
         if self.is_alive():
             self.command_queue.put(face_name)
+
+    def get_current_face(self) -> str:
+        """Thread-safe method to get the current face name."""
+        return self.current_face
 
     def stop(self):
         """Stops the display thread."""

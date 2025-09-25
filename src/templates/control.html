@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control Dashboard</title>
+    <link rel="stylesheet" href="../static/css/style2.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>Robot Control Dashboard</h1>
+            <div class="connection-status">
+                <div class="status-indicator" id="connectionStatus"></div>
+                <span id="connectionText">Connected</span>
+            </div>
+        </header>
+
+        <!-- Control Section -->
+        <section class="control-section">
+            <h2>Movement Controls</h2>
+            <div class="control-grid">
+                <button class="btn btn--primary control-btn" id="forwardBtn" data-command="move_forward">
+                    <span class="control-icon">↑</span>
+                    <span class="control-label">Forward</span>
+                </button>
+                <button class="btn btn--primary control-btn" id="leftBtn" data-command="turn_left">
+                    <span class="control-icon">←</span>
+                    <span class="control-label">Left</span>
+                </button>
+                <button class="btn btn--outline control-btn stop-btn" id="stopBtn" data-command="stop">
+                    <span class="control-icon">⏹</span>
+                    <span class="control-label">Stop</span>
+                </button>
+                <button class="btn btn--primary control-btn" id="rightBtn" data-command="turn_right">
+                    <span class="control-icon">→</span>
+                    <span class="control-label">Right</span>
+                </button>
+                <button class="btn btn--primary control-btn" id="backwardBtn" data-command="move_backward">
+                    <span class="control-icon">↓</span>
+                    <span class="control-label">Backward</span>
+                </button>
+            </div>
+            <div class="keyboard-help">
+                <p><strong>Keyboard shortcuts:</strong> Arrow keys to move • Space to stop • Enter to send text</p>
+            </div>
+        </section>
+
+        <!-- Text Communication Section -->
+        <section class="communication-section">
+            <h2>Text Communication</h2>
+            <div class="communication-grid">
+                <div class="input-group">
+                    <label class="form-label" for="textInput">Send to Robot</label>
+                    <div class="input-with-button">
+                        <input type="text" class="form-control" id="textInput" placeholder="Type your command or message...">
+                        <button class="btn btn--primary" id="sendBtn">Send</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="form-label">Voice Input</label>
+                    <div class="voice-display" id="voiceDisplay">
+                        <span class="placeholder-text">Voice input will appear here...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Robot Status Display -->
+        <section class="status-section">
+            <h2>Robot Status</h2>
+            <div class="status-grid">
+                <div class="card status-card">
+                    <div class="card__header">
+                        <h3>AI Response</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="response-display" id="aiResponse">
+                            <p class="placeholder-text">Robot responses will appear here...</p>
+                        </div>
+                        <div class="response-timestamp" id="responseTimestamp"></div>
+                    </div>
+                </div>
+
+                <div class="card status-card">
+                    <div class="card__header">
+                        <h3>Robot Face & Status</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="face-display">
+                            <div class="face-emoji" id="faceEmoji">😐</div>
+                            <div class="face-status" id="faceStatus">neutral</div>
+                        </div>
+                        <div class="last-command">
+                            <strong>Last Command:</strong> <span id="lastCommand">None</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card status-card">
+                    <div class="card__header">
+                        <h3>Sensor Readings</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="sensor-grid">
+                            <div class="sensor-reading">
+                                <span class="sensor-label">Front:</span>
+                                <span class="sensor-value" id="frontSensor">-- cm</span>
+                            </div>
+                            <div class="sensor-reading">
+                                <span class="sensor-label">Left:</span>
+                                <span class="sensor-value" id="leftSensor">-- cm</span>
+                            </div>
+                            <div class="sensor-reading">
+                                <span class="sensor-label">Right:</span>
+                                <span class="sensor-value" id="rightSensor">-- cm</span>
+                            </div>
+                        </div>
+                        <div class="sensor-timestamp" id="sensorTimestamp">Last updated: --</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversation History -->
+        <section class="history-section">
+            <h2>Recent Activity</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="conversation-history" id="conversationHistory">
+                        <p class="placeholder-text">Activity log will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../static/js/script2.js"></script>
+</body>
+</html>

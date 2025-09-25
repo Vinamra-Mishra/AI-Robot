@@ -4,6 +4,7 @@ from .sensors import SensorManager
 from .face_display import FaceDisplay
 from .text_to_speech import TextToSpeech
 from typing import TYPE_CHECKING
+import time
 
 if TYPE_CHECKING:
     from .logging_system import LoggingSystem
@@ -19,9 +20,40 @@ class CommandProcessor:
 
     def speak_and_wait(self, text: str):
         """Change face to speaking, say the text, and revert to neutral."""
-        self.face_display.set_face("speaking")
-        self.tts.speak(text)
-        self.face_display.set_face("neutral")
+        if text:
+            self.face_display.set_face("speaking")
+            self.tts.speak(text)
+            self.face_display.set_face("neutral")
+
+    def _query_ai(self, text: str) -> str:
+        """Sets thinking face, queries AI, and handles response, returning the text."""
+        self.logger.log_activity("COMMAND_PROCESSOR", f"Querying AI with: '{text}'")
+        self.face_display.set_face("thinking")
+        time.sleep(0.5)  # Make sure the thinking face is visible
+
+        response_text = self.ai_processor.send_message(text)
+
+        is_failure = not response_text or \
+                     "unable to process" in response_text.lower() or \
+                     "my apologies" in response_text.lower()
+
+        if is_failure:
+            self.logger.log_activity("COMMAND_PROCESSOR", "AI response indicates failure.")
+            self.face_display.set_face("confused")
+            time.sleep(0.5)
+            return "I'm sorry, I had trouble with that request."
+        
+        self.logger.log_activity("COMMAND_PROCESSOR", f"AI responded: '{response_text}'")
+        return response_text
+
+    def process_text_input(self, text: str) -> str:
+        """Processes direct text input from the web UI."""
+        if not text:
+            return ""
+        
+        response_text = self._query_ai(text)
+        self.speak_and_wait(response_text)
+        return response_text
 
     def process_command(self, command_text: str):
         if not command_text:
@@ -72,8 +104,7 @@ class CommandProcessor:
         
         # Fallback to AI
         else:
-            self.face_display.set_face("thinking")
-            response_text = self.ai_processor.send_message(command_text)
+            response_text = self._query_ai(command_text)
 
         if response_text:
             self.speak_and_wait(response_text)

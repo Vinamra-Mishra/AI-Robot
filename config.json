@@ -1,0 +1,40 @@
+{
+  "audio": {
+    "vosk_model_path": "models/vosk-model-small-en-in-0.4",
+    "piper_voice": "en_US-amy-medium",
+    "sample_rate": 16000,
+    "chunk_size": 4096
+  },
+  "ai": {
+    "openai_api_key": "dummy",
+    "openai_api_base": "http://localhost:5001/v1",
+    "local_model_path": "models/local.gguf",
+    "max_context_length": 1096,
+    "temperature": 0.7
+  },
+  "hardware": {
+    "platform": "windows",
+    "motor_pins": {
+      "front_left": [18, 19],
+      "front_right": [20, 21],
+      "rear_left": [22, 23],
+      "rear_right": [24, 25]
+    },
+    "sensor_pins": {
+      "front_trigger": 2,
+      "front_echo": 3,
+      "left_trigger": 4,
+      "left_echo": 5,
+      "right_trigger": 6,
+      "right_echo": 7
+    }
+  },
+  "display": {
+    "screen_size": [800, 600],
+    "faces_directory": "Faces"
+  },
+  "logging": {
+    "log_directory": "logs",
+    "max_log_entries": 1000
+  }
+}
