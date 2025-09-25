@@ -168,7 +168,3 @@ The robot is configured using `config.json`. Create this file by copying `config
 - **No AI Response**: Verify your `openai_api_key` in `config.json` is correct. Check that the local model path is also correct.
 - **No Voice Recognition**: Ensure your microphone is working and that the `vosk_model_path` in `config.json` is correct.
 - **Web Interface Not Loading**: Make sure you are on the same network as the robot and are using the correct IP address and port (`:5000`).
-
----
-
-**Happy Robotics!**
