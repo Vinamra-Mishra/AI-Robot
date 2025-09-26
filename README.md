@@ -1,4 +1,4 @@
-# SARAR - Intelligent Voice-Controlled 4WD Robot
+# SARAS - Intelligent Voice-Controlled 4WD Robot
 
 An AI-powered 4-wheel drive robot with voice interaction, a web-based control dashboard, autonomous navigation, and visual feedback through facial expressions. The robot integrates multiple sensors, motors, and AI services to provide an interactive and intelligent robotic platform.
 
@@ -6,7 +6,7 @@ An AI-powered 4-wheel drive robot with voice interaction, a web-based control da
 
 - **Voice Interaction**: Natural language processing with Vosk for speech-to-text and Piper for text-to-speech.
 - **Web Control Dashboard**: A full-featured web interface for manual control, text-based communication, and real-time status monitoring.
-- **Defined AI Persona**: The AI is configured with a specific system prompt to act as SARAR, a physical robot, not a generic virtual assistant.
+- **Defined AI Persona**: The AI is configured with a specific system prompt to act as SARAS, a physical robot, not a generic virtual assistant.
 - **Dual AI Integration**: Uses the OpenAI API by default, with a local GGUF model (via LLaMA.cpp) as a seamless fallback.
 - **Autonomous Navigation**: Avoids obstacles using three ultrasonic sensors (front, left, and right).
 - **Visual Feedback**: A Pygame-based display shows facial expressions (happy, thinking, hearing, etc.) to communicate the robot's state.
@@ -107,7 +107,7 @@ ai-robot-4wd/
 To ensure a consistent and immersive user experience, the AI is given a specific persona via a system prompt at the start of every conversation. This prevents it from acting like a generic AI assistant.
 
 **Core Directives of the Persona:**
-- **Identity**: It is SARAR, a physical, 4-wheeled robot. It is not a virtual assistant or a language model.
+- **Identity**: It is SARAS, a physical, 4-wheeled robot. It is not a virtual assistant or a language model.
 - **Perspective**: Its knowledge is based on its sensors and internal logs. It exists to perform movement tasks and report its status.
 - **Behavior**: It is concise, task-oriented, and never breaks character. It will state when it does not understand a command rather than guessing.
 
